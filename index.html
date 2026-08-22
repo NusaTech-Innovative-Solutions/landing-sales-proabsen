@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ProAbsen membantu perusahaan mengelola absensi, shift, izin, dan laporan kehadiran dalam satu platform cloud."
+    />
+    <meta name="theme-color" content="#1e3a8a" />
+    <title>ProAbsen | Manajemen Kehadiran Berbasis Cloud</title>
+    <link rel="icon" href="./iconProAbsen.jpg" type="image/jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#konten">Lewati ke konten</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#beranda" aria-label="ProAbsen, kembali ke beranda">
+        <span class="brand__icon">
+          <img src="./iconProAbsen.jpg" alt="" />
+        </span>
+        <span class="brand__name">Pro<span>Absen</span></span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
+        <a href="#solusi">Solusi</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#cara-kerja">Cara kerja</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-demo" href="#demo">Minta demo</a>
+      </nav>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Buka menu navigasi"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+      >
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <main id="konten">
+      <section class="hero" id="beranda" aria-labelledby="hero-title">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <img class="hero__symbol" src="./iconProAbsen.jpg" alt="" aria-hidden="true" />
+
+        <div class="hero__content reveal is-visible">
+          <p class="eyebrow"><span></span> Platform kehadiran berbasis cloud</p>
+          <h1 id="hero-title">Absensi tim yang tertib, tanpa terasa rumit.</h1>
+          <p class="hero__description">
+            Catat kehadiran, atur shift, kelola izin, dan siapkan laporan dari satu tempat yang mudah dipakai semua orang.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#demo">
+              Jadwalkan demo
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="text-link" href="#fitur">
+              Jelajahi fitur
+              <i data-lucide="arrow-down" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p class="hero__assurance">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            Data terpusat untuk HR, atasan, dan karyawan.
+          </p>
+        </div>
+
+        <div class="hero__rail" aria-label="Fitur utama ProAbsen">
+          <div class="hero__rail-item reveal is-visible">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <span><small>Presisi lokasi</small>GPS &amp; geofence</span>
+          </div>
+          <div class="hero__rail-item reveal is-visible">
+            <i data-lucide="calendar-clock" aria-hidden="true"></i>
+            <span><small>Jadwal fleksibel</small>Shift terkelola</span>
+          </div>
+          <div class="hero__rail-item reveal is-visible">
+            <i data-lucide="file-check-2" aria-hidden="true"></i>
+            <span><small>Siap diproses</small>Rekap otomatis</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section outcomes" id="solusi" aria-labelledby="outcomes-title">
+        <div class="section-heading reveal">
+          <p class="section-label">Lebih rapi sejak hari pertama</p>
+          <h2 id="outcomes-title">Satu data untuk seluruh kehadiran.</h2>
+          <p>
+            Hilangkan rekap manual dan percakapan yang tercecer. Semua pihak melihat informasi yang sama, saat dibutuhkan.
+          </p>
+        </div>
+
+        <div class="outcome-grid">
+          <article class="outcome reveal">
+            <span class="outcome__number">01</span>
+            <i data-lucide="scan-face" aria-hidden="true"></i>
+            <h3>Check-in tervalidasi</h3>
+            <p>Lokasi dan bukti swafoto membantu setiap catatan tetap dapat dipercaya.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome__number">02</span>
+            <i data-lucide="route" aria-hidden="true"></i>
+            <h3>Aturan yang adaptif</h3>
+            <p>Kantor, lapangan, atau hybrid tetap mengikuti kebijakan yang Anda tetapkan.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome__number">03</span>
+            <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
+            <h3>Rekap siap pakai</h3>
+            <p>Keterlambatan, lembur, izin, dan ketidakhadiran langsung tersusun.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section product" id="fitur" aria-labelledby="product-title">
+        <div class="product__heading reveal">
+          <div>
+            <p class="section-label">Dua sudut pandang</p>
+            <h2 id="product-title">Mudah dikelola, nyaman digunakan.</h2>
+          </div>
+          <div class="segment-control" role="tablist" aria-label="Tampilan produk">
+            <button
+              class="segment-control__button is-active"
+              type="button"
+              role="tab"
+              id="tab-admin"
+              aria-controls="panel-admin"
+              aria-selected="true"
+              data-product-tab="admin"
+            >
+              HR &amp; admin
+            </button>
+            <button
+              class="segment-control__button"
+              type="button"
+              role="tab"
+              id="tab-employee"
+              aria-controls="panel-employee"
+              aria-selected="false"
+              data-product-tab="employee"
+            >
+              Karyawan
+            </button>
+          </div>
+        </div>
+
+        <div class="product-panel is-active" id="panel-admin" role="tabpanel" aria-labelledby="tab-admin" data-product-panel="admin">
+          <div class="product-copy reveal">
+            <p class="product-copy__tag">Kontrol operasional</p>
+            <h3>Kondisi tim terbaca dalam sekali lihat.</h3>
+            <p>Pantau status hari ini, tangani pengecualian, lalu unduh rekap tanpa berpindah aplikasi.</p>
+            <ul class="check-list">
+              <li><i data-lucide="check" aria-hidden="true"></i> Ringkasan realtime per lokasi</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Persetujuan izin dan koreksi</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Ekspor data untuk payroll</li>
+            </ul>
+          </div>
+
+          <div class="dashboard-preview reveal" aria-label="Contoh dashboard admin ProAbsen">
+            <div class="preview-bar">
+              <span class="preview-brand"><span></span> ProAbsen</span>
+              <span>Senin, 22 Agustus</span>
+              <span class="preview-avatar">NA</span>
+            </div>
+            <div class="preview-layout">
+              <div class="preview-sidebar" aria-hidden="true">
+                <i data-lucide="layout-dashboard"></i>
+                <i data-lucide="users"></i>
+                <i data-lucide="calendar-days"></i>
+                <i data-lucide="clipboard-list"></i>
+              </div>
+              <div class="preview-content">
+                <div class="preview-title">
+                  <div>
+                    <small>Ikhtisar hari ini</small>
+                    <strong>Kehadiran tim</strong>
+                  </div>
+                  <span><i data-lucide="refresh-cw" aria-hidden="true"></i> Diperbarui</span>
+                </div>
+                <div class="stat-grid">
+                  <div class="stat stat--green"><small>Hadir</small><strong>86</strong><span>tepat waktu</span></div>
+                  <div class="stat stat--amber"><small>Terlambat</small><strong>7</strong><span>perlu ditinjau</span></div>
+                  <div class="stat stat--blue"><small>Izin</small><strong>5</strong><span>telah disetujui</span></div>
+                </div>
+                <div class="attendance-list">
+                  <div class="attendance-list__head"><strong>Aktivitas terbaru</strong><span>Status</span></div>
+                  <div class="attendance-row">
+                    <span class="person-avatar">AP</span>
+                    <span><strong>Ayu Pratama</strong><small>Kantor Pusat · 07.54</small></span>
+                    <span class="status status--on-time">Hadir</span>
+                  </div>
+                  <div class="attendance-row">
+                    <span class="person-avatar person-avatar--blue">RA</span>
+                    <span><strong>Rizky Ananda</strong><small>Tim Lapangan · 08.06</small></span>
+                    <span class="status status--late">Terlambat</span>
+                  </div>
+                  <div class="attendance-row">
+                    <span class="person-avatar person-avatar--gray">DP</span>
+                    <span><strong>Dimas Putra</strong><small>Remote · 08.00</small></span>
+                    <span class="status status--on-time">Hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-panel" id="panel-employee" role="tabpanel" aria-labelledby="tab-employee" data-product-panel="employee" hidden>
+          <div class="product-copy reveal">
+            <p class="product-copy__tag">Pengalaman karyawan</p>
+            <h3>Catat kehadiran dalam beberapa detik.</h3>
+            <p>Informasi shift, lokasi, dan status pengajuan tersedia langsung dari perangkat yang selalu dibawa.</p>
+            <ul class="check-list">
+              <li><i data-lucide="check" aria-hidden="true"></i> Check-in singkat dan jelas</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Riwayat pribadi yang transparan</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Izin diajukan tanpa formulir kertas</li>
+            </ul>
+          </div>
+
+          <div class="employee-preview reveal" aria-label="Contoh tampilan karyawan ProAbsen">
+            <div class="phone-shell">
+              <div class="phone-status"><span>08:00</span><span><i data-lucide="wifi"></i><i data-lucide="battery-full"></i></span></div>
+              <div class="phone-header">
+                <div><small>Selamat pagi,</small><strong>Ayu</strong></div>
+                <span class="preview-avatar">AP</span>
+              </div>
+              <div class="location-map">
+                <span class="map-grid"></span>
+                <span class="location-pin"><i data-lucide="map-pin"></i></span>
+                <p><strong>Kantor Pusat</strong><small>Anda berada di area absensi</small></p>
+              </div>
+              <div class="shift-detail">
+                <span><small>Shift hari ini</small><strong>08.00 - 17.00</strong></span>
+                <span class="status status--on-time">Sesuai jadwal</span>
+              </div>
+              <button class="phone-checkin" type="button" tabindex="-1">
+                <i data-lucide="scan-face"></i>
+                <span>Check-in<small>Dengan swafoto</small></span>
+              </button>
+            </div>
+            <div class="employee-note employee-note--top"><i data-lucide="navigation"></i><span><strong>Lokasi akurat</strong>GPS terverifikasi</span></div>
+            <div class="employee-note employee-note--bottom"><i data-lucide="circle-check-big"></i><span><strong>Langsung tercatat</strong>Tanpa input ulang</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section workflow" id="cara-kerja" aria-labelledby="workflow-title">
+        <div class="section-heading section-heading--light reveal">
+          <p class="section-label">Mulai tanpa proses panjang</p>
+          <h2 id="workflow-title">Dari pengaturan ke laporan.</h2>
+          <p>Alur kerja ringkas membuat implementasi mudah dipahami sejak awal.</p>
+        </div>
+
+        <ol class="workflow-list">
+          <li class="workflow-step reveal">
+            <span>1</span>
+            <div><h3>Susun kebijakan</h3><p>Atur lokasi, jam kerja, shift, dan aturan toleransi sesuai kebutuhan perusahaan.</p></div>
+            <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+          </li>
+          <li class="workflow-step reveal">
+            <span>2</span>
+            <div><h3>Undang tim</h3><p>Karyawan menerima akses dan dapat mulai mencatat kehadiran dari perangkatnya.</p></div>
+            <i data-lucide="user-round-plus" aria-hidden="true"></i>
+          </li>
+          <li class="workflow-step reveal">
+            <span>3</span>
+            <div><h3>Tinjau hasil</h3><p>Dashboard menyusun aktivitas menjadi data yang siap ditindaklanjuti oleh HR.</p></div>
+            <i data-lucide="file-chart-column" aria-hidden="true"></i>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section capability" aria-labelledby="capability-title">
+        <div class="capability__intro reveal">
+          <p class="section-label">Tetap fleksibel</p>
+          <h2 id="capability-title">Mengikuti cara tim Anda bekerja.</h2>
+          <p>Gunakan hanya modul yang dibutuhkan sekarang, lalu perluas saat operasional berkembang.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="capability-item reveal">
+            <i data-lucide="building-2" aria-hidden="true"></i>
+            <h3>Multi lokasi</h3>
+            <p>Kelola kantor dan area kerja lapangan dari satu akun.</p>
+          </article>
+          <article class="capability-item reveal">
+            <i data-lucide="calendar-range" aria-hidden="true"></i>
+            <h3>Shift &amp; lembur</h3>
+            <p>Jadwal bergilir dan jam tambahan tercatat konsisten.</p>
+          </article>
+          <article class="capability-item reveal">
+            <i data-lucide="notebook-tabs" aria-hidden="true"></i>
+            <h3>Izin &amp; cuti</h3>
+            <p>Pengajuan dan persetujuan terdokumentasi dengan jelas.</p>
+          </article>
+          <article class="capability-item reveal">
+            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
+            <h3>Hak akses</h3>
+            <p>Informasi ditampilkan sesuai tanggung jawab setiap peran.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="faq__heading reveal">
+          <p class="section-label">Pertanyaan umum</p>
+          <h2 id="faq-title">Hal yang perlu diketahui.</h2>
+          <p>Jawaban singkat sebelum Anda melihat produknya lebih dekat.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <article class="faq-item is-open">
+            <h3>
+              <button type="button" aria-expanded="true">
+                Apakah ProAbsen cocok untuk tim lapangan?
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="faq-answer"><div><p>Ya. Lokasi kerja dapat ditentukan dengan geofence, sehingga tim lapangan tetap mengikuti area dan jadwal yang sudah ditetapkan.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button type="button" aria-expanded="false">
+                Apakah karyawan perlu perangkat khusus?
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="faq-answer"><div><p>Tidak. Karyawan dapat menggunakan perangkat yang biasa dipakai untuk mengakses layanan perusahaan selama memiliki koneksi internet.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button type="button" aria-expanded="false">
+                Bisakah data digunakan untuk payroll?
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="faq-answer"><div><p>Bisa. Rekap kehadiran dapat diekspor agar proses penggajian dan administrasi HR tidak membutuhkan input ulang.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3>
+              <button type="button" aria-expanded="false">
+                Berapa lama proses implementasinya?
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="faq-answer"><div><p>Durasi mengikuti jumlah lokasi, kebijakan, dan data karyawan. Tim ProAbsen akan membantu menyiapkan alur implementasi yang sesuai.</p></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo" id="demo" aria-labelledby="demo-title">
+        <img src="./ProAbsen.jpg" alt="" aria-hidden="true" />
+        <div class="demo__content reveal">
+          <p class="section-label">Lihat langsung</p>
+          <h2 id="demo-title">Siap membuat kehadiran lebih mudah?</h2>
+          <p>Ceritakan pola kerja tim Anda. Kami akan menunjukkan alur ProAbsen yang paling relevan.</p>
+          <a
+            class="button button--light"
+            href="mailto:sales@proabsen.id?subject=Permintaan%20Demo%20ProAbsen"
+          >
+            Hubungi tim kami
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="#beranda" aria-label="ProAbsen, kembali ke beranda">
+        <span class="brand__icon"><img src="./iconProAbsen.jpg" alt="" /></span>
+        <span class="brand__name">Pro<span>Absen</span></span>
+      </a>
+      <p>Platform manajemen kehadiran karyawan berbasis cloud.</p>
+      <p>&copy; <span data-year></span> ProAbsen.</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="./script.js" defer></script>
+  </body>
+</html>
