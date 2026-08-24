@@ -1446,6 +1446,10 @@ button {
 }
 
 @media (max-width: 780px) {
+  :root {
+    --section-pad: 3.75rem 1.25rem;
+  }
+
   .site-header {
     min-height: 68px;
   }
@@ -1572,10 +1576,14 @@ button {
 
   .outcome,
   .outcome:first-child {
-    min-height: 230px;
     padding: 1.6rem 0;
     border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .outcome h3,
+  .capability-item h3 {
+    padding-top: 1.75rem;
   }
 
   .product__heading {
@@ -1638,20 +1646,20 @@ button {
 
   .capability-grid {
     grid-template-columns: 1fr;
+    border-left: 0;
   }
 
   .capability-item {
-    min-height: 210px;
+    padding: 1.5rem 0;
+    border-right: 0;
   }
 
   .demo {
-    min-height: 520px;
+    min-height: 0;
   }
 
   .demo > img {
-    right: -46%;
-    width: 140vw;
-    opacity: 0.42;
+    display: none;
   }
 
   .site-footer {
