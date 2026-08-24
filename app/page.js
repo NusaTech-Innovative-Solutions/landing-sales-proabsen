@@ -36,6 +36,14 @@ import {
 import { useEffect, useState } from "react";
 import iconProAbsen from "../iconProAbsen.jpg";
 import proAbsenImage from "../ProAbsen.jpg";
+import shotAturJadwal from "../image/Buat jadwal baru.png";
+import shotPinjaman from "../image/Fitur Pinjaman.png";
+import shotKalenderShift from "../image/Jadwal Karyawan.png";
+import shotPengguna from "../image/Kelola Pengguna.png";
+import shotTugas from "../image/KPI atau Tugas Karyawan.png";
+import shotPengajuan from "../image/Pengajuan Cuti sakit telat karyawan.png";
+import shotRiwayat from "../image/Riwayat Aktivitas.png";
+import shotRingkasan from "../image/Summary Kehadiran.png";
 
 const navigationItems = [
   ["solusi", "Solusi"],
@@ -64,6 +72,64 @@ const faqItems = [
     question: "Berapa lama proses implementasinya?",
     answer:
       "Durasi mengikuti jumlah lokasi, kebijakan, dan data karyawan. Tim ProAbsen akan membantu menyiapkan alur implementasi yang sesuai.",
+  },];
+
+const showcaseItems = [
+  {
+    src: shotRingkasan,
+    title: "Ringkasan kehadiran",
+    description: "Jumlah hadir, terlambat, dan belum absen terbaca per hari.",
+    alt: "Tangkapan layar ringkasan kehadiran harian ProAbsen",
+    safe: "15%",
+  },
+  {
+    src: shotPengguna,
+    title: "Data pengguna",
+    description: "Peran, kategori kerja, dan hak akses diatur per orang.",
+    alt: "Tangkapan layar halaman kelola pengguna",
+    safe: "15%",
+  },
+  {
+    src: shotKalenderShift,
+    title: "Kalender shift",
+    description: "Sebaran jadwal sebulan terekap dalam satu tabel.",
+    alt: "Tangkapan layar laporan jadwal karyawan bulanan",
+    safe: "29%",
+  },
+  {
+    src: shotAturJadwal,
+    title: "Atur jadwal",
+    description: "Tambah penugasan harian lengkap dengan jam kerjanya.",
+    alt: "Tangkapan layar formulir tambah jadwal baru",
+    safe: "40%",
+  },
+  {
+    src: shotPengajuan,
+    title: "Izin & cuti",
+    description: "Setiap pengajuan tercatat dengan status yang jelas.",
+    alt: "Tangkapan layar daftar pengajuan izin dan cuti karyawan",
+    safe: "15%",
+  },
+  {
+    src: shotTugas,
+    title: "Tugas harian",
+    description: "Pekerjaan dan target terdokumentasi per tanggal.",
+    alt: "Tangkapan layar daftar tugas karyawan",
+    safe: "15%",
+  },
+  {
+    src: shotPinjaman,
+    title: "Pinjaman",
+    description: "Nominal dan metode potongan tercatat rapi.",
+    alt: "Tangkapan layar formulir pinjaman karyawan",
+    safe: "18%",
+  },
+  {
+    src: shotRiwayat,
+    title: "Jejak aktivitas",
+    description: "Semua peristiwa terekam dan bisa ditelusuri ulang.",
+    alt: "Tangkapan layar riwayat aktivitas pengguna",
+    safe: "29%",
   },
 ];
 
@@ -90,6 +156,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("");
   const [activeProduct, setActiveProduct] = useState("admin");
   const [openFaq, setOpenFaq] = useState(0);
+  const [activeShot, setActiveShot] = useState(0);
 
   useEffect(() => {
     const updateHeader = () => setHeaderScrolled(window.scrollY > 12);
@@ -156,6 +223,16 @@ export default function Home() {
     const nextProduct = products[(currentIndex + direction + products.length) % products.length];
     setActiveProduct(nextProduct);
     document.getElementById(`tab-${nextProduct}`)?.focus();
+  };
+
+  const selectAdjacentShot = (event, currentIndex) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+
+    event.preventDefault();
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextIndex = (currentIndex + direction + showcaseItems.length) % showcaseItems.length;
+    setActiveShot(nextIndex);
+    document.getElementById(`shot-${nextIndex}`)?.focus();
   };
 
   return (
@@ -504,6 +581,82 @@ export default function Home() {
                 </span>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="section showcase" aria-labelledby="showcase-title">
+          <div className="section-heading reveal">
+            <p className="section-label">Lihat produknya</p>
+            <h2 id="showcase-title">Bukan sekadar mockup.</h2>
+            <p>Semua tangkapan layar diambil langsung dari ProAbsen yang sedang berjalan. Pilih tampilan yang ingin Anda lihat lebih dekat.</p>
+          </div>
+
+          <div className="showcase-gallery reveal">
+            <figure className="showcase-stage">
+              <div className="showcase-stage__bar" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div
+                className="showcase-stage__screen"
+                style={{ "--shot-safe": showcaseItems[activeShot].safe }}
+              >
+                <Image
+                  key={showcaseItems[activeShot].title}
+                  src={showcaseItems[activeShot].src}
+                  alt={showcaseItems[activeShot].alt}
+                  fill
+                  quality={90}
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+              </div>
+            </figure>
+
+            <div className="showcase-panel">
+              <div className="showcase-caption" aria-live="polite">
+                <p className="showcase-caption__count">
+                  {String(activeShot + 1).padStart(2, "0")} / {String(showcaseItems.length).padStart(2, "0")}
+                </p>
+                <h3>{showcaseItems[activeShot].title}</h3>
+                <p>{showcaseItems[activeShot].description}</p>
+              </div>
+
+              <div className="showcase-rail" role="group" aria-label="Pilih tampilan produk">
+                {showcaseItems.map((item, index) => (
+                  <button
+                    key={item.title}
+                    className={`showcase-thumb${index === activeShot ? " is-active" : ""}`}
+                    type="button"
+                    id={`shot-${index}`}
+                    aria-label={`Tampilkan ${item.title}`}
+                    aria-current={index === activeShot}
+                    tabIndex={index === activeShot ? 0 : -1}
+                    onClick={() => setActiveShot(index)}
+                    onKeyDown={(event) => selectAdjacentShot(event, index)}
+                  >
+                    <span className="showcase-thumb__box">
+                      <Image
+                        src={item.src}
+                        alt=""
+                        sizes="(max-width: 430px) 124px, (max-width: 780px) 140px, (max-width: 1024px) 168px, 220px"
+                      />
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="showcase-cta reveal">
+            <p>
+              <strong>Semua yang baru saja Anda lihat bisa dicoba langsung.</strong>
+              <span>Gratis 30 hari, tanpa kartu kredit.</span>
+            </p>
+            <a className="button button--primary" href="#demo">
+              Jadwalkan demo
+              <ArrowRight aria-hidden="true" />
+            </a>
           </div>
         </section>
 

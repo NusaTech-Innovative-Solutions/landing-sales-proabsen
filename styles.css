@@ -1262,6 +1262,168 @@ button {
   grid-template-rows: 1fr;
 }
 
+.showcase {
+  background: var(--white);
+}
+
+.showcase-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.72fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.showcase-stage {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.showcase-stage__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.7rem 0.9rem;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.showcase-stage__bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c9d3e0;
+}
+
+.showcase-stage__screen {
+  position: relative;
+  aspect-ratio: 13 / 7;
+  background:
+    linear-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+    var(--surface);
+  background-size: 28px 28px;
+}
+
+.showcase-stage__screen img {
+  object-fit: cover;
+  object-position: clamp(0px, var(--shot-safe, 0%), 100%) 50%;
+  animation: showcase-fade 340ms ease;
+}
+
+@keyframes showcase-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.showcase-panel {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.showcase-caption {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.showcase-caption__count {
+  color: var(--brand-blue);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.showcase-caption h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.showcase-caption > p:last-child {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.showcase-rail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  max-height: 480px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.showcase-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 13 / 7;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 160ms ease;
+}
+
+.showcase-thumb__box {
+  position: absolute;
+  inset: 0;
+}
+
+.showcase-thumb__box img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.showcase-thumb.is-active {
+  border-color: var(--brand-blue);
+}
+
+.showcase-thumb:not(.is-active):hover {
+  border-color: #b9c6d8;
+}
+
+.showcase-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.showcase-cta p {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.showcase-cta strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.showcase-cta span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .demo {
   position: relative;
   isolation: isolate;
@@ -1442,6 +1604,34 @@ button {
   .capability__intro > p:last-child,
   .faq__heading > p:last-child {
     align-self: end;
+  }
+
+  .showcase-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-panel {
+    gap: 1.25rem;
+  }
+
+  .showcase-rail {
+    display: flex;
+    max-height: none;
+    overflow-y: visible;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    scroll-snap-type: inline proximity;
+  }
+
+  .showcase-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .showcase-thumb {
+    flex: 0 0 168px;
+    width: auto;
+    scroll-snap-align: start;
   }
 }
 
@@ -1666,6 +1856,14 @@ button {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+
+  .showcase-caption h3 {
+    font-size: 1.3rem;
+  }
+
+  .showcase-thumb {
+    flex-basis: 140px;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1713,6 +1911,15 @@ button {
 
   .employee-note {
     display: none;
+  }
+
+  .showcase-thumb {
+    flex-basis: 124px;
+  }
+
+  .showcase-cta {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
 
