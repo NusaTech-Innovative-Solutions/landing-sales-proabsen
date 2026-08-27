@@ -38,12 +38,19 @@ import iconProAbsen from "../iconProAbsen.jpg";
 import proAbsenImage from "../ProAbsen.jpg";
 import shotAturJadwal from "../image/Buat jadwal baru.png";
 import shotPinjaman from "../image/Fitur Pinjaman.png";
+import shotDesktopLogin from "../image/Login.png";
 import shotKalenderShift from "../image/Jadwal Karyawan.png";
 import shotPengguna from "../image/Kelola Pengguna.png";
 import shotTugas from "../image/KPI atau Tugas Karyawan.png";
 import shotPengajuan from "../image/Pengajuan Cuti sakit telat karyawan.png";
 import shotRiwayat from "../image/Riwayat Aktivitas.png";
 import shotRingkasan from "../image/Summary Kehadiran.png";
+import shotRegistration from "../image/Registrasi.png";
+import shotMobileDashboard from "../image/mobile dashboard.jpeg";
+import shotMobileLogin from "../image/mobile login.jpeg";
+import shotMobileLoading from "../image/loading.jpeg";
+import shotTutorial from "../image/introduce.jpeg";
+import shotReport from "../image/report.jpeg";
 
 const navigationItems = [
   ["solusi", "Solusi"],
@@ -131,6 +138,54 @@ const showcaseItems = [
     alt: "Tangkapan layar riwayat aktivitas pengguna",
     safe: "29%",
   },
+  {
+    src: shotDesktopLogin,
+    title: "Login web",
+    description: "Akses panel manajemen dari layar kerja yang familiar.",
+    alt: "Tangkapan layar halaman login web ProAbsen",
+    safe: "50%",
+  },
+  {
+    src: shotTutorial,
+    title: "Tutorial penggunaan",
+    description: "Panduan pengaturan tersedia saat tim mulai memakai sistem.",
+    alt: "Tangkapan layar halaman tutorial penggunaan ProAbsen",
+    safe: "50%",
+  },
+  {
+    src: shotReport,
+    title: "Laporan manajemen",
+    description: "Analisis kehadiran dan operasional siap ditinjau.",
+    alt: "Tangkapan layar laporan manajemen ProAbsen",
+    safe: "50%",
+  },
+];
+
+const mobileShowcaseItems = [
+  {
+    src: shotMobileLogin,
+    title: "Login karyawan",
+    description: "Karyawan masuk dengan kode dan kata sandi dari ponselnya.",
+    alt: "Tangkapan layar login karyawan ProAbsen di ponsel",
+  },
+  {
+    src: shotMobileDashboard,
+    title: "Dashboard mobile",
+    description: "Status hadir, lokasi, dan aktivitas terlihat dalam satu layar.",
+    alt: "Tangkapan layar dashboard mobile ProAbsen",
+  },
+  {
+    src: shotMobileLoading,
+    title: "Proses yang jelas",
+    description: "Status pemrosesan tampil jelas saat data sedang disiapkan.",
+    alt: "Tangkapan layar status pemrosesan aplikasi mobile ProAbsen",
+  },
+  {
+    src: shotRegistration,
+    title: "Registrasi perusahaan",
+    description: "Pendaftaran akun perusahaan dapat dimulai dengan alur yang ringkas.",
+    alt: "Tangkapan layar registrasi perusahaan ProAbsen",
+  },
 ];
 
 function Brand({ footer = false }) {
@@ -157,6 +212,7 @@ export default function Home() {
   const [activeProduct, setActiveProduct] = useState("admin");
   const [openFaq, setOpenFaq] = useState(0);
   const [activeShot, setActiveShot] = useState(0);
+  const [activeMobileShot, setActiveMobileShot] = useState(0);
 
   useEffect(() => {
     const updateHeader = () => setHeaderScrolled(window.scrollY > 12);
@@ -233,6 +289,17 @@ export default function Home() {
     const nextIndex = (currentIndex + direction + showcaseItems.length) % showcaseItems.length;
     setActiveShot(nextIndex);
     document.getElementById(`shot-${nextIndex}`)?.focus();
+  };
+
+  const selectAdjacentMobileShot = (event, currentIndex) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+
+    event.preventDefault();
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextIndex =
+      (currentIndex + direction + mobileShowcaseItems.length) % mobileShowcaseItems.length;
+    setActiveMobileShot(nextIndex);
+    document.getElementById(`mobile-shot-${nextIndex}`)?.focus();
   };
 
   return (
@@ -644,6 +711,65 @@ export default function Home() {
                     </span>
                   </button>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="showcase-mobile reveal">
+            <div className="showcase-mobile__heading">
+              <p className="section-label">Aplikasi mobile</p>
+              <h3 id="showcase-mobile-title">Absensi ikut ke mana pun tim bekerja.</h3>
+              <p>Tampilan mobile dibuat ringkas untuk login, presensi, dan melihat status kehadiran tanpa membuka laptop.</p>
+            </div>
+
+            <div className="showcase-mobile__gallery" aria-labelledby="showcase-mobile-title">
+              <figure className="mobile-device">
+                <div className="mobile-device__speaker" aria-hidden="true" />
+                <div className="mobile-device__screen">
+                  <Image
+                    key={mobileShowcaseItems[activeMobileShot].title}
+                    src={mobileShowcaseItems[activeMobileShot].src}
+                    alt={mobileShowcaseItems[activeMobileShot].alt}
+                    fill
+                    quality={90}
+                    sizes="(max-width: 780px) 68vw, 270px"
+                  />
+                </div>
+                <span className="mobile-device__home" aria-hidden="true" />
+              </figure>
+
+              <div className="showcase-mobile__panel">
+                <div className="showcase-caption" aria-live="polite">
+                  <p className="showcase-caption__count">
+                    {String(activeMobileShot + 1).padStart(2, "0")} / {String(mobileShowcaseItems.length).padStart(2, "0")}
+                  </p>
+                  <h4>{mobileShowcaseItems[activeMobileShot].title}</h4>
+                  <p>{mobileShowcaseItems[activeMobileShot].description}</p>
+                </div>
+
+                <div className="showcase-mobile__rail" role="group" aria-label="Pilih tampilan aplikasi mobile">
+                  {mobileShowcaseItems.map((item, index) => (
+                    <button
+                      key={item.title}
+                      className={`showcase-mobile__thumb${index === activeMobileShot ? " is-active" : ""}`}
+                      type="button"
+                      id={`mobile-shot-${index}`}
+                      aria-label={`Tampilkan ${item.title}`}
+                      aria-current={index === activeMobileShot}
+                      tabIndex={index === activeMobileShot ? 0 : -1}
+                      onClick={() => setActiveMobileShot(index)}
+                      onKeyDown={(event) => selectAdjacentMobileShot(event, index)}
+                    >
+                      <span className="showcase-mobile__thumb-box">
+                        <Image
+                          src={item.src}
+                          alt=""
+                          sizes="(max-width: 780px) 88px, 120px"
+                        />
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

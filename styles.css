@@ -1352,8 +1352,9 @@ button {
 }
 
 .showcase-rail {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.6rem;
   max-height: 480px;
   overflow-y: auto;
@@ -1365,6 +1366,7 @@ button {
   position: relative;
   display: block;
   width: 100%;
+  flex: 0 0 auto;
   aspect-ratio: 13 / 7;
   overflow: hidden;
   padding: 0;
@@ -1383,6 +1385,7 @@ button {
 .showcase-thumb__box img {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1422,6 +1425,139 @@ button {
 .showcase-cta span {
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.showcase-mobile {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.showcase-mobile__heading {
+  display: grid;
+  gap: 0.55rem;
+  max-inline-size: 760px;
+}
+
+.showcase-mobile__heading h3 {
+  max-inline-size: 22ch;
+  padding-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.showcase-mobile__heading > p:last-child {
+  max-inline-size: 58ch;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.showcase-mobile__gallery {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.58fr) minmax(320px, 1.42fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.mobile-device {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 270px);
+  padding: 10px;
+  background: #172033;
+  border: 1px solid #2a3850;
+  border-radius: 34px;
+  box-shadow: 0 24px 54px rgba(23, 32, 51, 0.2);
+}
+
+.mobile-device__speaker {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  left: 50%;
+  width: 66px;
+  height: 5px;
+  background: #0d1422;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.mobile-device__screen {
+  position: relative;
+  aspect-ratio: 9 / 20;
+  overflow: hidden;
+  background: #f3f6fa;
+  border-radius: 25px;
+}
+
+.mobile-device__screen img {
+  object-fit: contain;
+}
+
+.mobile-device__home {
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 9px auto 2px;
+  background: #8490a3;
+  border-radius: 999px;
+}
+
+.showcase-mobile__panel {
+  display: grid;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.showcase-mobile__panel .showcase-caption h4 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.showcase-mobile__rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.showcase-mobile__thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 20;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 160ms ease;
+}
+
+.showcase-mobile__thumb-box {
+  position: absolute;
+  inset: 0;
+}
+
+.showcase-mobile__thumb-box img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.showcase-mobile__thumb.is-active {
+  border-color: var(--brand-blue);
+}
+
+.showcase-mobile__thumb:not(.is-active):hover {
+  border-color: #b9c6d8;
 }
 
 .demo {
@@ -1616,6 +1752,7 @@ button {
 
   .showcase-rail {
     display: flex;
+    flex-direction: row;
     max-height: none;
     overflow-y: visible;
     overflow-x: auto;
@@ -1632,6 +1769,10 @@ button {
     flex: 0 0 168px;
     width: auto;
     scroll-snap-align: start;
+  }
+
+  .showcase-mobile__gallery {
+    grid-template-columns: minmax(180px, 0.52fr) minmax(300px, 1.48fr);
   }
 }
 
@@ -1864,6 +2005,37 @@ button {
   .showcase-thumb {
     flex-basis: 140px;
   }
+
+  .showcase-mobile__gallery {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mobile-device {
+    width: min(260px, 72vw);
+  }
+
+  .showcase-mobile__panel {
+    gap: 1.25rem;
+  }
+
+  .showcase-mobile__rail {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    scroll-snap-type: inline proximity;
+  }
+
+  .showcase-mobile__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .showcase-mobile__thumb {
+    flex: 0 0 88px;
+    width: auto;
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1915,6 +2087,20 @@ button {
 
   .showcase-thumb {
     flex-basis: 124px;
+  }
+
+  .showcase-mobile__heading h3 {
+    font-size: 1.8rem;
+  }
+
+  .mobile-device {
+    width: min(235px, 72vw);
+    padding: 8px;
+    border-radius: 29px;
+  }
+
+  .mobile-device__screen {
+    border-radius: 21px;
   }
 
   .showcase-cta {
