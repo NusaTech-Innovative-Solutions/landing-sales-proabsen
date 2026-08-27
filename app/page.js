@@ -4,7 +4,6 @@ import Image from "next/image";
 import {
   ArrowDown,
   ArrowRight,
-  ArrowUpRight,
   BatteryFull,
   Building2,
   CalendarClock,
@@ -21,6 +20,7 @@ import {
   LockKeyhole,
   MapPin,
   Menu,
+  MessageCircle,
   Navigation,
   NotebookTabs,
   RefreshCw,
@@ -34,7 +34,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import iconProAbsen from "../iconProAbsen.jpg";
+import iconProAbsen from "../iconProAbsen-square.jpg";
 import proAbsenImage from "../ProAbsen.jpg";
 import shotAturJadwal from "../image/Buat jadwal baru.png";
 import shotPinjaman from "../image/Fitur Pinjaman.png";
@@ -58,6 +58,12 @@ const navigationItems = [
   ["cara-kerja", "Cara kerja"],
   ["faq", "FAQ"],
 ];
+
+const trialLink = "https://proabsen.nisgroup.id/register";
+const whatsappNumber = "6285176735791";
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  "Halo Tim ProAbsen, saya ingin berkonsultasi tentang aplikasi absensi karyawan.",
+)}`;
 
 const faqItems = [
   {
@@ -196,7 +202,7 @@ function Brand({ footer = false }) {
       aria-label="ProAbsen, kembali ke beranda"
     >
       <span className="brand__icon">
-        <Image src={iconProAbsen} alt="" priority={!footer} />
+        <Image src={iconProAbsen} alt="" priority={!footer} quality={100} />
       </span>
       <span className="brand__name">
         Pro<span>Absen</span>
@@ -326,8 +332,14 @@ export default function Home() {
               {label}
             </a>
           ))}
-          <a className="nav-demo" href="#demo" onClick={() => setMenuOpen(false)}>
-            Minta demo
+          <a
+            className="nav-demo"
+            href={trialLink}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMenuOpen(false)}
+          >
+            Coba gratis
           </a>
         </nav>
 
@@ -359,19 +371,22 @@ export default function Home() {
             <p className="eyebrow">
               <span /> Platform kehadiran berbasis cloud
             </p>
-            <h1 id="hero-title">Absensi tim yang tertib, tanpa terasa rumit.</h1>
+            <h1 id="hero-title">Aplikasi absensi karyawan untuk tim kantor dan lapangan.</h1>
             <p className="hero__description">
-              Catat kehadiran, atur shift, kelola izin, dan siapkan laporan dari satu tempat yang mudah dipakai semua
-              orang.
+              ProAbsen membantu HR mencatat kehadiran, mengatur shift, mengelola izin, dan menyiapkan laporan dari
+              satu tempat yang mudah dipakai semua orang.
+            </p>
+            <p className="hero__offer">
+              <strong>Gratis 30 hari</strong> · Tanpa kartu kredit
             </p>
             <div className="hero__actions">
-              <a className="button button--primary" href="#demo">
-                Jadwalkan demo
+              <a className="button button--primary" href={trialLink} target="_blank" rel="noreferrer">
+                Coba gratis 30 hari
                 <ArrowRight aria-hidden="true" />
               </a>
-              <a className="text-link" href="#fitur">
-                Jelajahi fitur
-                <ArrowDown aria-hidden="true" />
+              <a className="text-link" href={whatsappLink} target="_blank" rel="noreferrer">
+                Tanya via WhatsApp
+                <MessageCircle aria-hidden="true" />
               </a>
             </div>
             <p className="hero__assurance">
@@ -674,7 +689,8 @@ export default function Home() {
                   src={showcaseItems[activeShot].src}
                   alt={showcaseItems[activeShot].alt}
                   fill
-                  quality={90}
+                  unoptimized
+                  quality={100}
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
               </div>
@@ -706,7 +722,10 @@ export default function Home() {
                       <Image
                         src={item.src}
                         alt=""
-                        sizes="(max-width: 430px) 124px, (max-width: 780px) 140px, (max-width: 1024px) 168px, 220px"
+                        fill
+                        unoptimized
+                        quality={100}
+                        sizes="(max-width: 430px) 124px, (max-width: 780px) 140px, (max-width: 1024px) 168px, 320px"
                       />
                     </span>
                   </button>
@@ -731,7 +750,8 @@ export default function Home() {
                     src={mobileShowcaseItems[activeMobileShot].src}
                     alt={mobileShowcaseItems[activeMobileShot].alt}
                     fill
-                    quality={90}
+                    unoptimized
+                    quality={100}
                     sizes="(max-width: 780px) 68vw, 270px"
                   />
                 </div>
@@ -764,7 +784,10 @@ export default function Home() {
                         <Image
                           src={item.src}
                           alt=""
-                          sizes="(max-width: 780px) 88px, 120px"
+                          fill
+                          unoptimized
+                          quality={100}
+                          sizes="(max-width: 780px) 88px, (max-width: 1024px) 180px, 220px"
                         />
                       </span>
                     </button>
@@ -779,8 +802,8 @@ export default function Home() {
               <strong>Semua yang baru saja Anda lihat bisa dicoba langsung.</strong>
               <span>Gratis 30 hari, tanpa kartu kredit.</span>
             </p>
-            <a className="button button--primary" href="#demo">
-              Jadwalkan demo
+            <a className="button button--primary" href={trialLink} target="_blank" rel="noreferrer">
+              Coba gratis 30 hari
               <ArrowRight aria-hidden="true" />
             </a>
           </div>
@@ -891,19 +914,33 @@ export default function Home() {
             src={proAbsenImage}
             alt=""
             aria-hidden="true"
+            quality={100}
             sizes="(max-width: 780px) 140vw, 72vw"
           />
           <div className="demo__content reveal">
             <p className="section-label">Lihat langsung</p>
-            <h2 id="demo-title">Siap membuat kehadiran lebih mudah?</h2>
-            <p>Ceritakan pola kerja tim Anda. Kami akan menunjukkan alur ProAbsen yang paling relevan.</p>
-            <a className="button button--light" href="mailto:sales@proabsen.id?subject=Permintaan%20Demo%20ProAbsen">
-              Hubungi tim kami
-              <ArrowUpRight aria-hidden="true" />
-            </a>
+            <h2 id="demo-title">Siap mengurangi rekap manual?</h2>
+            <p>
+              Mulai gratis 30 hari, atau isi data singkat agar tim ProAbsen bisa membantu lewat WhatsApp.
+            </p>
+            <div className="demo__actions">
+              <a className="button button--light" href={trialLink} target="_blank" rel="noreferrer">
+                Coba gratis 30 hari
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <a className="demo__whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">
+                <MessageCircle aria-hidden="true" />
+                Tanya via WhatsApp
+              </a>
+            </div>
           </div>
         </section>
       </main>
+
+      <a className="whatsapp-float" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Chat dengan ProAbsen via WhatsApp">
+        <MessageCircle aria-hidden="true" />
+        <span>Chat WhatsApp</span>
+      </a>
 
       <footer className="site-footer">
         <Brand footer />
