@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import iconProAbsen from "../iconProAbsen-square.webp";
 import proAbsenImage from "../ProAbsen.webp";
 import "../styles.css";
@@ -99,7 +100,10 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
