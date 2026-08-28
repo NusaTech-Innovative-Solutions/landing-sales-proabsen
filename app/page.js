@@ -58,6 +58,7 @@ import shotMobile8 from "../new foto/mobile/8.webp";
 
 const navigationItems = [
   ["solusi", "Solusi"],
+  ["sasaran", "Untuk siapa"],
   ["fitur", "Fitur"],
   ["cara-kerja", "Cara kerja"],
   ["faq", "FAQ"],
@@ -171,6 +172,105 @@ const showcaseItems = [
   },
 ];
 
+const activityItems = [
+  {
+    initials: "D",
+    name: "Bapak Deni",
+    action: "telah melakukan pendaftaran",
+    city: "Bandung",
+    time: "2 jam yang lalu",
+    tone: "blue",
+  },
+  {
+    initials: "A",
+    name: "Ibu Anisa",
+    action: "baru saja memulai trial",
+    city: "Jakarta",
+    time: "4 jam yang lalu",
+    tone: "purple",
+  },
+  {
+    initials: "R",
+    name: "Bapak Rudi",
+    action: "telah melakukan pendaftaran",
+    city: "Surabaya",
+    time: "kemarin",
+    tone: "green",
+  },
+  {
+    initials: "S",
+    name: "Ibu Sari",
+    action: "baru saja memulai trial",
+    city: "Yogyakarta",
+    time: "kemarin",
+    tone: "purple",
+  },
+  {
+    initials: "F",
+    name: "Bapak Fajar",
+    action: "telah melakukan pendaftaran",
+    city: "Semarang",
+    time: "2 hari yang lalu",
+    tone: "blue",
+  },
+  {
+    initials: "M",
+    name: "Ibu Maya",
+    action: "baru saja memulai trial",
+    city: "Bekasi",
+    time: "2 hari yang lalu",
+    tone: "green",
+  },
+  {
+    initials: "A",
+    name: "Bapak Arif",
+    action: "telah melakukan pendaftaran",
+    city: "Medan",
+    time: "3 hari yang lalu",
+    tone: "blue",
+  },
+  {
+    initials: "N",
+    name: "Ibu Nadia",
+    action: "baru saja memulai trial",
+    city: "Makassar",
+    time: "3 hari yang lalu",
+    tone: "purple",
+  },
+  {
+    initials: "T",
+    name: "Bapak Taufik",
+    action: "telah melakukan pendaftaran",
+    city: "Tangerang",
+    time: "4 hari yang lalu",
+    tone: "green",
+  },
+  {
+    initials: "L",
+    name: "Ibu Linda",
+    action: "baru saja memulai trial",
+    city: "Depok",
+    time: "4 hari yang lalu",
+    tone: "blue",
+  },
+  {
+    initials: "H",
+    name: "Bapak Hendra",
+    action: "telah melakukan pendaftaran",
+    city: "Balikpapan",
+    time: "5 hari yang lalu",
+    tone: "purple",
+  },
+  {
+    initials: "C",
+    name: "Ibu Citra",
+    action: "baru saja memulai trial",
+    city: "Bali",
+    time: "5 hari yang lalu",
+    tone: "green",
+  },
+];
+
 const mobileShowcaseItems = [
   {
     src: shotMobile1,
@@ -247,6 +347,8 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState(0);
   const [activeShot, setActiveShot] = useState(0);
   const [activeMobileShot, setActiveMobileShot] = useState(0);
+  const [activeActivity, setActiveActivity] = useState(0);
+  const [activityDismissed, setActivityDismissed] = useState(false);
 
   useEffect(() => {
     const updateHeader = () => setHeaderScrolled(window.scrollY > 12);
@@ -263,6 +365,16 @@ export default function Home() {
       window.removeEventListener("resize", closeDesktopMenu);
     };
   }, []);
+
+  useEffect(() => {
+    if (activityDismissed) return undefined;
+
+    const activityTimer = window.setInterval(() => {
+      setActiveActivity((current) => (current + 1) % activityItems.length);
+    }, 7000);
+
+    return () => window.clearInterval(activityTimer);
+  }, [activityDismissed]);
 
   useEffect(() => {
     const revealObserver = new IntersectionObserver(
@@ -445,6 +557,37 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="trust-strip" aria-label="Keunggulan utama ProAbsen">
+          <div className="trust-strip__item reveal is-visible">
+            <CircleCheckBig aria-hidden="true" />
+            <span>
+              <strong>Gratis 30 hari</strong>
+              Mulai tanpa kartu kredit
+            </span>
+          </div>
+          <div className="trust-strip__item reveal is-visible">
+            <MapPin aria-hidden="true" />
+            <span>
+              <strong>GPS &amp; geofence</strong>
+              Validasi lokasi kerja
+            </span>
+          </div>
+          <div className="trust-strip__item reveal is-visible">
+            <Users aria-hidden="true" />
+            <span>
+              <strong>Web &amp; mobile</strong>
+              Satu data untuk semua
+            </span>
+          </div>
+          <div className="trust-strip__item reveal is-visible">
+            <MessageCircle aria-hidden="true" />
+            <span>
+              <strong>Dibantu saat mulai</strong>
+              Konsultasi lewat WhatsApp
+            </span>
+          </div>
+        </section>
+
         <section className="section outcomes" id="solusi" aria-labelledby="outcomes-title">
           <div className="section-heading reveal">
             <p className="section-label">Lebih rapi sejak hari pertama</p>
@@ -473,6 +616,38 @@ export default function Home() {
               <ChartNoAxesCombined aria-hidden="true" />
               <h3>Rekap siap pakai</h3>
               <p>Keterlambatan, lembur, izin, dan ketidakhadiran langsung tersusun.</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="section audience" id="sasaran" aria-labelledby="audience-title">
+          <div className="section-heading reveal">
+            <p className="section-label">Untuk siapa ProAbsen?</p>
+            <h2 id="audience-title">Satu platform, banyak cara kerja.</h2>
+            <p>Mulai dari kebutuhan HR sampai operasional lapangan, ProAbsen membantu setiap peran bekerja dengan data yang sama.</p>
+          </div>
+
+          <div className="audience-grid">
+            <article className="audience-card reveal">
+              <span className="audience-card__icon"><Users aria-hidden="true" /></span>
+              <p className="audience-card__number">01 / HR &amp; Admin</p>
+              <h3>Berhenti mengejar rekap.</h3>
+              <p>Kelola data karyawan, izin, shift, dan laporan dari dashboard yang terpusat.</p>
+              <a href="#fitur">Lihat fitur admin <ArrowRight aria-hidden="true" /></a>
+            </article>
+            <article className="audience-card reveal">
+              <span className="audience-card__icon"><Building2 aria-hidden="true" /></span>
+              <p className="audience-card__number">02 / Pemilik bisnis</p>
+              <h3>Tahu kondisi tim setiap hari.</h3>
+              <p>Dapatkan visibilitas kehadiran tanpa harus menunggu laporan manual dari banyak tempat.</p>
+              <a href="#demo">Konsultasikan kebutuhan <ArrowRight aria-hidden="true" /></a>
+            </article>
+            <article className="audience-card reveal">
+              <span className="audience-card__icon"><MapPin aria-hidden="true" /></span>
+              <p className="audience-card__number">03 / Tim lapangan</p>
+              <h3>Presensi tetap fleksibel.</h3>
+              <p>Pastikan kehadiran tercatat sesuai lokasi dan jadwal kerja, di mana pun tim bertugas.</p>
+              <a href="#cara-kerja">Pelajari cara kerja <ArrowRight aria-hidden="true" /></a>
             </article>
           </div>
         </section>
@@ -964,6 +1139,22 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {!activityDismissed && (
+        <aside className="activity-toast" aria-live="polite" aria-label="Aktivitas pendaftaran terbaru">
+          <div className={`activity-toast__avatar activity-toast__avatar--${activityItems[activeActivity].tone}`}>
+            {activityItems[activeActivity].initials}
+            <span />
+          </div>
+          <div className="activity-toast__copy">
+            <p><strong>{activityItems[activeActivity].name}</strong> {activityItems[activeActivity].action}</p>
+            <span>{activityItems[activeActivity].city}, {activityItems[activeActivity].time}</span>
+          </div>
+          <button type="button" onClick={() => setActivityDismissed(true)} aria-label="Tutup notifikasi aktivitas">
+            <X aria-hidden="true" />
+          </button>
+        </aside>
+      )}
 
       <a className="whatsapp-float" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Chat dengan ProAbsen via WhatsApp">
         <MessageCircle aria-hidden="true" />
