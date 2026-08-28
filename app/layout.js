@@ -1,5 +1,5 @@
-import iconProAbsen from "../iconProAbsen-square.jpg";
-import proAbsenImage from "../ProAbsen.jpg";
+import iconProAbsen from "../iconProAbsen-square.webp";
+import proAbsenImage from "../ProAbsen.webp";
 import "../styles.css";
 
 const siteUrl = "https://landing-sales-proabsen.vercel.app";
@@ -49,7 +49,7 @@ export const metadata = {
     images: [proAbsenImage.src],
   },
   icons: {
-    icon: [{ url: iconProAbsen.src, type: "image/jpeg" }],
+    icon: [{ url: iconProAbsen.src, type: "image/webp" }],
   },
 };
 

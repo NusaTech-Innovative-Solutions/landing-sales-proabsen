@@ -34,23 +34,27 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import iconProAbsen from "../iconProAbsen-square.jpg";
-import proAbsenImage from "../ProAbsen.jpg";
-import shotAturJadwal from "../image/Buat jadwal baru.png";
-import shotPinjaman from "../image/Fitur Pinjaman.png";
-import shotDesktopLogin from "../image/Login.png";
-import shotKalenderShift from "../image/Jadwal Karyawan.png";
-import shotPengguna from "../image/Kelola Pengguna.png";
-import shotTugas from "../image/KPI atau Tugas Karyawan.png";
-import shotPengajuan from "../image/Pengajuan Cuti sakit telat karyawan.png";
-import shotRiwayat from "../image/Riwayat Aktivitas.png";
-import shotRingkasan from "../image/Summary Kehadiran.png";
-import shotRegistration from "../image/Registrasi.png";
-import shotMobileDashboard from "../image/mobile dashboard.jpeg";
-import shotMobileLogin from "../image/mobile login.jpeg";
-import shotMobileLoading from "../image/loading.jpeg";
-import shotTutorial from "../image/introduce.jpeg";
-import shotReport from "../image/report.jpeg";
+import iconProAbsen from "../iconProAbsen-square.webp";
+import proAbsenImage from "../ProAbsen.webp";
+import shotDashboard from "../new foto/dekstop/dashboard.webp";
+import shotDataKaryawan from "../new foto/dekstop/data karyawan.webp";
+import shotDataPerusahaan from "../new foto/dekstop/data perusahaan.webp";
+import shotLaporanAbsensi from "../new foto/dekstop/laporan absensi.webp";
+import shotLaporanManajemen from "../new foto/dekstop/laporan managemen.webp";
+import shotLaporanSlipGaji from "../new foto/dekstop/laporan slip gaji.webp";
+import shotLogin from "../new foto/dekstop/login.webp";
+import shotPengaturanPenggajian from "../new foto/dekstop/pengaturan penggajian.webp";
+import shotPenjadwalan from "../new foto/dekstop/penjadwalan.webp";
+import shotPengajuan from "../new foto/dekstop/pengajuan izin cuti lembur.webp";
+import shotRiwayat from "../new foto/dekstop/riwayat aktivitas.webp";
+import shotMobile1 from "../new foto/mobile/1.webp";
+import shotMobile2 from "../new foto/mobile/2.webp";
+import shotMobile3 from "../new foto/mobile/3.webp";
+import shotMobile4 from "../new foto/mobile/4.webp";
+import shotMobile5 from "../new foto/mobile/5.webp";
+import shotMobile6 from "../new foto/mobile/6.webp";
+import shotMobile7 from "../new foto/mobile/7.webp";
+import shotMobile8 from "../new foto/mobile/8.webp";
 
 const navigationItems = [
   ["solusi", "Solusi"],
@@ -89,53 +93,74 @@ const faqItems = [
 
 const showcaseItems = [
   {
-    src: shotRingkasan,
+    src: shotDashboard,
     title: "Ringkasan kehadiran",
     description: "Jumlah hadir, terlambat, dan belum absen terbaca per hari.",
     alt: "Tangkapan layar ringkasan kehadiran harian ProAbsen",
     safe: "15%",
   },
   {
-    src: shotPengguna,
-    title: "Data pengguna",
+    src: shotDataKaryawan,
+    title: "Data karyawan",
     description: "Peran, kategori kerja, dan hak akses diatur per orang.",
-    alt: "Tangkapan layar halaman kelola pengguna",
+    alt: "Tangkapan layar halaman data karyawan ProAbsen",
     safe: "15%",
   },
   {
-    src: shotKalenderShift,
-    title: "Kalender shift",
-    description: "Sebaran jadwal sebulan terekap dalam satu tabel.",
-    alt: "Tangkapan layar laporan jadwal karyawan bulanan",
-    safe: "29%",
+    src: shotDataPerusahaan,
+    title: "Data perusahaan",
+    description: "Profil dan informasi perusahaan tersimpan dalam satu panel.",
+    alt: "Tangkapan layar halaman data perusahaan ProAbsen",
+    safe: "15%",
   },
   {
-    src: shotAturJadwal,
-    title: "Atur jadwal",
-    description: "Tambah penugasan harian lengkap dengan jam kerjanya.",
-    alt: "Tangkapan layar formulir tambah jadwal baru",
-    safe: "40%",
+    src: shotLaporanAbsensi,
+    title: "Laporan absensi",
+    description: "Rekap kehadiran karyawan siap ditinjau dan diekspor.",
+    alt: "Tangkapan layar laporan absensi ProAbsen",
+    safe: "15%",
+  },
+  {
+    src: shotLaporanManajemen,
+    title: "Laporan manajemen",
+    description: "Analisis kehadiran dan operasional siap ditinjau.",
+    alt: "Tangkapan layar laporan manajemen ProAbsen",
+    safe: "15%",
+  },
+  {
+    src: shotLaporanSlipGaji,
+    title: "Laporan slip gaji",
+    description: "Informasi slip gaji tersusun rapi untuk kebutuhan administrasi.",
+    alt: "Tangkapan layar laporan slip gaji ProAbsen",
+    safe: "15%",
+  },
+  {
+    src: shotLogin,
+    title: "Login web",
+    description: "Akses panel manajemen dari layar kerja yang familiar.",
+    alt: "Tangkapan layar halaman login web ProAbsen",
+    safe: "50%",
+  },
+  {
+    src: shotPengaturanPenggajian,
+    title: "Pengaturan penggajian",
+    description: "Aturan dan komponen penggajian dapat diatur sesuai kebutuhan.",
+    alt: "Tangkapan layar pengaturan penggajian ProAbsen",
+    safe: "15%",
+  },
+  {
+    src: shotPenjadwalan,
+    title: "Penjadwalan",
+    description: "Jadwal kerja karyawan tersusun jelas dalam satu halaman.",
+    alt: "Tangkapan layar penjadwalan karyawan ProAbsen",
+    safe: "15%",
   },
   {
     src: shotPengajuan,
-    title: "Izin & cuti",
+    title: "Izin, cuti & lembur",
     description: "Setiap pengajuan tercatat dengan status yang jelas.",
-    alt: "Tangkapan layar daftar pengajuan izin dan cuti karyawan",
+    alt: "Tangkapan layar pengajuan izin, cuti, dan lembur ProAbsen",
     safe: "15%",
-  },
-  {
-    src: shotTugas,
-    title: "Tugas harian",
-    description: "Pekerjaan dan target terdokumentasi per tanggal.",
-    alt: "Tangkapan layar daftar tugas karyawan",
-    safe: "15%",
-  },
-  {
-    src: shotPinjaman,
-    title: "Pinjaman",
-    description: "Nominal dan metode potongan tercatat rapi.",
-    alt: "Tangkapan layar formulir pinjaman karyawan",
-    safe: "18%",
   },
   {
     src: shotRiwayat,
@@ -144,53 +169,56 @@ const showcaseItems = [
     alt: "Tangkapan layar riwayat aktivitas pengguna",
     safe: "29%",
   },
-  {
-    src: shotDesktopLogin,
-    title: "Login web",
-    description: "Akses panel manajemen dari layar kerja yang familiar.",
-    alt: "Tangkapan layar halaman login web ProAbsen",
-    safe: "50%",
-  },
-  {
-    src: shotTutorial,
-    title: "Tutorial penggunaan",
-    description: "Panduan pengaturan tersedia saat tim mulai memakai sistem.",
-    alt: "Tangkapan layar halaman tutorial penggunaan ProAbsen",
-    safe: "50%",
-  },
-  {
-    src: shotReport,
-    title: "Laporan manajemen",
-    description: "Analisis kehadiran dan operasional siap ditinjau.",
-    alt: "Tangkapan layar laporan manajemen ProAbsen",
-    safe: "50%",
-  },
 ];
 
 const mobileShowcaseItems = [
   {
-    src: shotMobileLogin,
+    src: shotMobile1,
     title: "Login karyawan",
     description: "Karyawan masuk dengan kode dan kata sandi dari ponselnya.",
     alt: "Tangkapan layar login karyawan ProAbsen di ponsel",
   },
   {
-    src: shotMobileDashboard,
-    title: "Dashboard mobile",
-    description: "Status hadir, lokasi, dan aktivitas terlihat dalam satu layar.",
-    alt: "Tangkapan layar dashboard mobile ProAbsen",
+    src: shotMobile2,
+    title: "Validasi lokasi",
+    description: "Lokasi kehadiran diverifikasi sebelum karyawan melakukan presensi.",
+    alt: "Tangkapan layar validasi lokasi aplikasi mobile ProAbsen",
   },
   {
-    src: shotMobileLoading,
-    title: "Proses yang jelas",
-    description: "Status pemrosesan tampil jelas saat data sedang disiapkan.",
-    alt: "Tangkapan layar status pemrosesan aplikasi mobile ProAbsen",
+    src: shotMobile3,
+    title: "Presensi harian",
+    description: "Status hadir dan riwayat presensi terlihat dalam satu layar.",
+    alt: "Tangkapan layar presensi harian aplikasi mobile ProAbsen",
   },
   {
-    src: shotRegistration,
-    title: "Registrasi perusahaan",
-    description: "Pendaftaran akun perusahaan dapat dimulai dengan alur yang ringkas.",
-    alt: "Tangkapan layar registrasi perusahaan ProAbsen",
+    src: shotMobile4,
+    title: "Pengajuan izin",
+    description: "Karyawan dapat memilih jenis pengajuan dan mengirimkannya dari ponsel.",
+    alt: "Tangkapan layar pengajuan izin aplikasi mobile ProAbsen",
+  },
+  {
+    src: shotMobile5,
+    title: "Aktivitas kehadiran",
+    description: "Catatan presensi terbaru tersusun jelas berdasarkan waktu.",
+    alt: "Tangkapan layar aktivitas kehadiran aplikasi mobile ProAbsen",
+  },
+  {
+    src: shotMobile6,
+    title: "Detail pengajuan",
+    description: "Pengajuan izin dan cuti dilengkapi detail yang mudah dipahami.",
+    alt: "Tangkapan layar detail pengajuan aplikasi mobile ProAbsen",
+  },
+  {
+    src: shotMobile7,
+    title: "Tugas saya",
+    description: "Tugas harian dapat dibuat dan dipantau langsung oleh karyawan.",
+    alt: "Tangkapan layar tugas karyawan aplikasi mobile ProAbsen",
+  },
+  {
+    src: shotMobile8,
+    title: "Profil karyawan",
+    description: "Menu pribadi dan pengaturan akun tersedia dalam satu tempat.",
+    alt: "Tangkapan layar profil karyawan aplikasi mobile ProAbsen",
   },
 ];
 
