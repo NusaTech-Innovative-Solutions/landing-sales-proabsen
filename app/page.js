@@ -511,7 +511,7 @@ export default function Home() {
             <p className="eyebrow">
               <span /> Platform kehadiran berbasis cloud
             </p>
-            <h1 id="hero-title">Aplikasi absensi karyawan untuk tim kantor dan lapangan.</h1>
+            <h1 id="hero-title">Aplikasi Absensi GPS untuk Kantor &amp; Tim Lapangan</h1>
             <p className="hero__description">
               ProAbsen membantu HR mencatat kehadiran, mengatur shift, mengelola izin, dan menyiapkan laporan dari
               satu tempat yang mudah dipakai semua orang.
